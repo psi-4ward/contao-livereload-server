@@ -1,6 +1,8 @@
 #!/bin/bash
 CURRDIR=`pwd`;
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+THISFILE=`readlink -f ${BASH_SOURCE[0]}`
+DIR="$( cd "$( dirname "$THISFILE" )" && pwd )"
 
 cd $DIR/..
 node_modules/gulp/bin/gulp.js -d $CURRDIR $@
