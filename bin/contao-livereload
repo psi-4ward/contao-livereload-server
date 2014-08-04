@@ -1,0 +1,6 @@
+#!/bin/bash
+CURRDIR=`pwd`;
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd $DIR/..
+node_modules/gulp/bin/gulp.js -d $CURRDIR $@
