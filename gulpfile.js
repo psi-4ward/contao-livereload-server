@@ -12,7 +12,7 @@ var path = require('path');
 
 var argv = require('yargs')
   .usage('Usage: gulp -u mycontaosite -w "files/layout/*.less"')
-  .describe('u', 'Contao directory')
+  .describe('d', 'Contao directory')
   .describe('w', 'Add more watcher')
   .required(['d'])
   .argv;
