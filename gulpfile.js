@@ -20,6 +20,10 @@ var yargs = require('yargs')
   .example('contao-livereload -d ContaoProject -w files/layout/**/*.less -w files/layout/**/*.css', '')
   .describe('d', 'Contao directory path, default is the current working directory')
   .describe('w', 'Add file watchers, you can use globbing')
+  .describe('lr-port', 'Port of the livereload server')
+  .describe('req-port', 'Port listen on for Contao requests')
+  .default('lr-port', 35729)
+  .default('req-port', 35720)
   .describe('h', 'Help')
 var argv = yargs.argv;
 
@@ -94,7 +98,7 @@ gulp.task('default', function() {
   gutil.log('Assume Contao root directory in ' + gutil.colors.bold(cwd));
 
   // Start LiveReload Server
-  livereload.listen();
+  livereload.listen(argv['lr-port']);
 
   // Start Contao-Request Server
   var app = express();
@@ -144,7 +148,7 @@ gulp.task('default', function() {
 
   });
 
-  var server = app.listen(35720, function() {
+  var server = app.listen(argv['req-port'], function() {
     gutil.log('Contao Handler listening on: '+gutil.colors.magenta(server.address().port));
     gutil.log('Waiting for Contao requests ...');
   });
