@@ -9,15 +9,29 @@ var replace = require('gulp-replace-task');
 var merge = require('merge-stream');
 var path = require('path');
 
+var version = require('./package.json').version;
 
-var argv = require('yargs')
-  .usage('Usage: gulp -u mycontaosite -w "files/layout/*.less"')
-  .describe('d', 'Contao directory')
-  .describe('w', 'Add more watcher')
-  .required(['d'])
-  .argv;
+var yargs = require('yargs')
+  .usage(
+    'Contao livereload server v.'+version+"\n" +
+    'https://github.com/psi-4ward/contao-livereload'+"\n\n" +
+    'Usage: contao-livereload -d path -w "files/layout/**/*.less"'
+  )
+  .example('contao-livereload -d ContaoProject -w files/layout/**/*.less -w files/layout/**/*.css', '')
+  .describe('d', 'Contao directory path, default is the current working directory')
+  .describe('w', 'Add file watchers, you can use globbing')
+  .describe('h', 'Help')
+var argv = yargs.argv;
 
-process.chdir(argv.d);
+if(argv.h) {
+  yargs.showHelp();
+  process.exit(1);
+} else {
+  console.log('Contao livereload server v.' + version);
+  console.log('Use -h for help');
+}
+
+if(argv.d) process.chdir(argv.d);
 var cwd = process.cwd();
 
 function error(msg) {
