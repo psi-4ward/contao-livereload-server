@@ -18,6 +18,8 @@ Examples:
 Options:
   -d  Contao directory path, default is the current working directory
   -w  Add file watchers, you can use globbing
+  --lr-port   Port of the livereload server                                    [default: 35729]
+  --req-port  Port listen on for Contao requests                               [default: 35720]
   -h  Help
 ```
 

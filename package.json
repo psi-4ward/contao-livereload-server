@@ -1,7 +1,7 @@
 {
   "name": "contao-livereload",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Livereload Contao CSS with LESS compiler",
   "author": {
     "name": "Christoph Wiechert",
