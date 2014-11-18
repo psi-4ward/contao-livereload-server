@@ -47,6 +47,7 @@ function error(msg) {
 
 // Combine the files
 function combine(dest, files) {
+  setTimeout(function(){
     var sources = files.map(function(f) {
       var ext = f.match(/\.([a-z0-9]+)$/i);
       var s;
@@ -90,9 +91,10 @@ function combine(dest, files) {
       return s;
     });
 
-  merge.apply(this, sources)
-    .pipe(concat(dest))
-    .pipe(gulp.dest('.'))
+    merge.apply(this, sources)
+      .pipe(concat(dest))
+      .pipe(gulp.dest('.'))
+  }, argv.delay);
 }
 
 
@@ -109,6 +111,7 @@ gulp.task('default', function() {
     }, argv.delay);
   }
 
+  
   // Start Contao-Request Server
   var app = express();
   app.use(bodyParser.json());
