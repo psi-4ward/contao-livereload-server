@@ -22,8 +22,10 @@ var yargs = require('yargs')
   .describe('w', 'Add file watchers, you can use globbing')
   .describe('lr-port', 'Port of the livereload server')
   .describe('req-port', 'Port listen on for Contao requests')
+  .describe('delay', 'Processing delay in ms. Useful if livereload acts too fast and something like your FTP hasnt finished the upload.')
   .default('lr-port', 35729)
   .default('req-port', 35720)
+  .default('delay', 300)
   .describe('h', 'Help')
 var argv = yargs.argv;
 
@@ -100,6 +102,13 @@ gulp.task('default', function() {
   // Start LiveReload Server
   livereload.listen(argv['lr-port']);
 
+  function lrChangeDelayed() {
+    var args = arguments;
+    setTimeout(function() {
+      livereload.changed.apply(livereload, args)
+    }, argv.delay);
+  }
+
   // Start Contao-Request Server
   var app = express();
   app.use(bodyParser.json());
@@ -123,7 +132,7 @@ gulp.task('default', function() {
     var watchFiles = [];
     if(Array.isArray(req.body.nfiles)) watchFiles = watchFiles.concat(req.body.nfiles);
     if(req.body.cdest) watchFiles.push(req.body.cdest);
-    s1 = gulp.watch(watchFiles).on('change', livereload.changed);
+    s1 = gulp.watch(watchFiles).on('change', lrChangeDelayed);
     watchFiles.forEach(function(f) {
       gutil.log(gutil.colors.cyan('Watching for livereload') + ' ' + f);
     });
