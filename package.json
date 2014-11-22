@@ -15,37 +15,58 @@
     "url": "http://github.com/psi-4ward/contao-livereload/issues"
   },
   "preferGlobal": "true",
-   "keywords": [
+  "keywords": [
     "contao",
     "css",
     "less",
     "livereload"
   ],
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git@github.com:psi4ward/contao-livereload.git"
   },
   "dependencies": {
-    "body-parser": "^1.5.2",
-    "express": "^4.7.2",
-    "gulp-for-compass": "0.0.2",
+    "body-parser": "~1.5.2",
+    "express": "~4.7.2",
     "gulp": "~3.8.6",
-    "gulp-concat": "^2.3.4",
-    "gulp-frep": "^0.1.3",
+    "gulp-compass": "~2.0.3",
+    "gulp-concat": "~2.3.4",
+    "gulp-frep": "~0.1.3",
     "gulp-less": "~1.2.3",
     "gulp-livereload": "~2.1.0",
-    "gulp-plumber": "^0.6.4",
+    "gulp-plumber": "~0.6.4",
     "gulp-replace-task": "0.0.6",
-    "merge-stream": "^0.1.5",
-    "yargs": "^1.3.1"
+    "merge-stream": "~0.1.5",
+    "yargs": "~1.3.1"
   },
   "bin": {
     "contao-livereload": "./bin/contao-livereload.js"
   },
   "devDependencies": {},
-    "engines": {
+  "engines": {
     "node": ">= 0.10.x"
-  }
+  },
+  "gitHead": "b041c5ffdeac94cb3c3b890d65e63ea56b8111bd",
+  "_id": "contao-livereload@1.2.1",
+  "_shasum": "3b00bb6c0c1f40b65c42c368f2b0bd5c9cbfad70",
+  "_from": "contao-livereload@",
+  "_npmVersion": "2.1.5",
+  "_nodeVersion": "0.10.32",
+  "_npmUser": {
+    "name": "psi",
+    "email": "npm@psitrax.de"
+  },
+  "maintainers": [
+    {
+      "name": "psi",
+      "email": "npm@psitrax.de"
+    }
+  ],
+  "dist": {
+    "shasum": "3b00bb6c0c1f40b65c42c368f2b0bd5c9cbfad70",
+    "tarball": "http://registry.npmjs.org/contao-livereload/-/contao-livereload-1.2.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/contao-livereload/-/contao-livereload-1.2.1.tgz"
 }
