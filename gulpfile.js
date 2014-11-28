@@ -1,5 +1,5 @@
 var bodyParser = require('body-parser');
-var compass = require('gulp-for-compass');
+var compass = require('gulp-compass');
 var express = require('express');
 var gulp = require('gulp');
 var gutil = require('./node_modules/gulp/node_modules/gulp-util/index.js');
@@ -65,8 +65,12 @@ function combine(dest, files) {
           break;
 
         case 'sass':
-	case 'scss':
-          s = gulp.src(f).pipe(compass({}));
+        case 'scss':
+          s = gulp.src(f).pipe(compass({
+            project: cwd,
+            css: cwd,
+            sass: cwd
+          }));
           s.on('error', function(e) {
             gutil.log(gutil.colors.red('CompassCSS Error: ') + e.message.replace(cwd, ''));
           });
@@ -171,5 +175,4 @@ gulp.task('default', function() {
   });
 
 });
-
 
