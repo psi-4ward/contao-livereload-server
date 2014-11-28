@@ -46,27 +46,5 @@
   "devDependencies": {},
   "engines": {
     "node": ">= 0.10.x"
-  },
-  "gitHead": "b041c5ffdeac94cb3c3b890d65e63ea56b8111bd",
-  "_id": "contao-livereload@1.2.1",
-  "_shasum": "3b00bb6c0c1f40b65c42c368f2b0bd5c9cbfad70",
-  "_from": "contao-livereload@",
-  "_npmVersion": "2.1.5",
-  "_nodeVersion": "0.10.32",
-  "_npmUser": {
-    "name": "psi",
-    "email": "npm@psitrax.de"
-  },
-  "maintainers": [
-    {
-      "name": "psi",
-      "email": "npm@psitrax.de"
-    }
-  ],
-  "dist": {
-    "shasum": "3b00bb6c0c1f40b65c42c368f2b0bd5c9cbfad70",
-    "tarball": "http://registry.npmjs.org/contao-livereload/-/contao-livereload-1.2.1.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/contao-livereload/-/contao-livereload-1.2.1.tgz"
+  }
 }
